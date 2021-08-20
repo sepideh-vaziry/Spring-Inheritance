@@ -1,10 +1,12 @@
 package com.sepideh.inheritance.model.mappedsuperclass;
 
 import javax.persistence.Entity;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @Entity
 public class Employee extends Person {
