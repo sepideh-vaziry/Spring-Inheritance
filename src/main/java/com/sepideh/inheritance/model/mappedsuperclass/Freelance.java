@@ -7,8 +7,8 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @Entity
-public class Employee extends Person {
+public class Freelance extends Employee {
 
-  private String company;
+  private String email;
 
 }
