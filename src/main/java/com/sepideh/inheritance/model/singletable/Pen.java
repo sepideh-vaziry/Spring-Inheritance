@@ -10,7 +10,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @Entity
-@DiscriminatorValue("pen")
+@DiscriminatorValue("PEN")
 public class Pen extends Product {
 
   private String color;

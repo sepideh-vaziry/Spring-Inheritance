@@ -1,6 +1,8 @@
 package com.sepideh.inheritance.model.tableperclass;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
@@ -16,7 +18,8 @@ import lombok.Setter;
 public class Vehicle {
 
   @Id
-  private long vehicleId;
+  @GeneratedValue(strategy = GenerationType.TABLE)
+  private Long vehicleId;
   private int model;
 
 }

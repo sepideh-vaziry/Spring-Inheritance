@@ -1,5 +1,7 @@
 package com.sepideh.inheritance.model.mappedsuperclass;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import lombok.Getter;
@@ -13,7 +15,8 @@ import lombok.Setter;
 public abstract class Person {
 
   @Id
-  private long personId;
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long personId;
   private String name;
 
 }

@@ -10,7 +10,9 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @Entity
-@DiscriminatorValue("book")
+@DiscriminatorValue("BOOK")
 public class Book extends Product {
+
   private String author;
+
 }
