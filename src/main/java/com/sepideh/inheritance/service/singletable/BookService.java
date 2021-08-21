@@ -19,7 +19,7 @@ public class BookService {
   }
 
   public BookDto create(BookDto bookDto) {
-//    bookDto.setProductId(null);
+    bookDto.setProductId(null);
     Book book = bookRepository.save(
         bookMapper.create(bookDto)
     );
