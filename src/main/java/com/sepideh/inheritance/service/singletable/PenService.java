@@ -1,9 +1,12 @@
 package com.sepideh.inheritance.service.singletable;
 
+import com.sepideh.inheritance.config.ProductCacheConfig;
 import com.sepideh.inheritance.dto.singletable.PenDto;
 import com.sepideh.inheritance.mapper.singletable.PenMapper;
 import com.sepideh.inheritance.model.singletable.Pen;
 import com.sepideh.inheritance.repository.singletable.PenRepository;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.crossstore.ChangeSetPersister.NotFoundException;
 import org.springframework.stereotype.Service;
 
@@ -27,6 +30,7 @@ public class PenService {
     return penMapper.toDto(pen);
   }
 
+  @CacheEvict(value = ProductCacheConfig.CACHE_PEN, key = "#id")
   public PenDto update(PenDto penDto) throws NotFoundException {
     Pen pen = penRepository.findById(penDto.getProductId())
         .orElseThrow(NotFoundException::new);
@@ -38,6 +42,7 @@ public class PenService {
     return penDto;
   }
 
+  @Cacheable(value = ProductCacheConfig.CACHE_PEN, key = "#id")
   public PenDto getPen(Long id) throws NotFoundException {
     Pen pen = penRepository.findById(id)
         .orElseThrow(NotFoundException::new);
@@ -45,6 +50,7 @@ public class PenService {
     return penMapper.toDto(pen);
   }
 
+  @CacheEvict(value = ProductCacheConfig.CACHE_PEN, key = "#id")
   public void delete(Long id) {
     penRepository.deleteById(id);
   }
